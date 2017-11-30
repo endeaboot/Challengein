@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Challengein Admin</title>
+	<link rel="stylesheet" href="assets/css/foundation.min.css">
+	<link rel="stylesheet" href="assets/css/sweetalert.css">
+	<link href="https://cdn.quilljs.com/1.1.5/quill.snow.css" rel="stylesheet">
+	<link href="assets/css/dracula.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+	<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+      <div class="off-canvas position-left reveal-for-large" id="mainmenu" data-off-canvas data-position="left">
+        <div class="row column">
+          <img class="thumbnail" src="http://placehold.it/350x150">
+          <ul class="tabs vertical" id="tabsmenu" data-tabs>
+			      <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Inicio</a></li>
+			      <li class="tabs-title"><a href="#panel2v">Niveles</a></li>
+			      <li class="tabs-title"><a href="#panel3v">Misiones</a></li>
+			      <li class="tabs-title"><a href="#panel5v">Logros</a></li>
+			      <li class="tabs-title"><a href="#panel6v">Usuarios</a></li>
+			      <li class="tabs-title"><a href="#panel4v">Configuración General</a></li>
+			      <li class="tabs-title"><a href="#panel7v">Configuración Popup</a></li>
+			    </ul>
+			    <br><br><br>
+			    <a href="javascript:void(0);" class="button warning" id="btncerrarsesion">Cerrar Sesión</a>
+        </div>
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+        <div class="title-bar hide-for-large">
+          <div class="title-bar-left">
+            <button class="menu-icon" type="button" data-open="mainmenu"></button>
+            <span class="title-bar-title">Challengein</span>
+          </div>
+        </div>
+
+        <div class="tabs-content vertical" data-tabs-content="tabsmenu">
+
+		      <div class="tabs-panel is-active" id="panel1v"> <!- INICIO ->
+            <div class="callout primary">
+		          <div class="row column">
+		            <h1>Bienvenido a tu panel administrativo</h1>
+		          </div>
+		        </div>
+		        <br>
+		        <div class="columns large-12">
+		        	<p>Copia este código y pégalo antes de la etiqueta <code>&lt;/body&gt;</code>. y debajo de jquery</p>
+		        	<div class="callout secondary">
+		        		<pre><code id="beacon"></code></pre>
+		        		<!-- <textarea class="html" name="" id="beacon" cols="30" rows="10" readonly="readonly"></textarea> -->
+		        		<button class="button clip" data-clipboard-target="#beacon">
+							    Copiar código
+								</button>
+		        	</div>
+		        </div>
+		      </div> <!- FIN INICIO ->
+
+		      <div class="tabs-panel" id="panel2v"> <!- Niveles ->
+		        <div class="columns large-3 niveleside text-center">
+		        	<h3>Mis Niveles</h3>
+		        	<ul class="tabs vertical" id="tabsniveles" data-tabs>
+					    </ul>
+		        </div>
+		        <div class="columns large-9">
+		        	<div class="tabs-content vertical" data-tabs-content="tabsniveles" id="tabnivelescontent">
+		        		<div class="tabs-panel is-active" id="crearnivel">
+					      </div>
+					    </div>
+		        </div>
+		      </div> <!- Fin Niveles ->
+
+		      <div class="tabs-panel" id="panel3v"> <!- Misiones ->
+		        <div class="columns large-3 niveleside text-center">
+		        	<h3>Mis Misiones</h3>
+		        	<ul class="tabs vertical" id="tabsmisiones" data-tabs>
+					    </ul>
+		        </div>
+		        <div class="columns large-9">
+		        	<div class="tabs-content vertical" data-tabs-content="tabsmisiones" id="tabmisionescontent">
+					    </div>
+		        </div>
+		      </div> <!- FIN MISIONES ->
+
+		      <div class="tabs-panel" id="panel5v"> <!- LOGROS ->
+            <div class="columns large-3 niveleside text-center">
+		        	<h3>Mis Logros</h3>
+		        	<ul class="tabs vertical" id="tabslogros" data-tabs>
+					    </ul>
+		        </div>
+		        <div class="columns large-9">
+		        	<div class="tabs-content vertical" data-tabs-content="tabslogros" id="tablogroscontent">
+					    </div>
+		        </div>
+		      </div> <!- FIN LOGROS ->
+
+		      <div class="tabs-panel" id="panel6v"> <!- USUARIOS ->
+            <div class="columns large-3 niveleside text-center">
+		        	<h3>Usuarios</h3>
+		        	<ul class="tabs vertical" id="tabsusuarios" data-tabs>
+					    </ul>
+		        </div>
+		        <div class="columns large-9">
+		        	<div class="tabs-content vertical" data-tabs-content="tabsusuarios" id="tabusuarioscontent">
+					    </div>
+		        </div>
+		      </div> <!- FIN USUARIOS ->
+
+		      <div class="tabs-panel" id="panel4v"> <!- Configuración General ->
+		        <div class="columns large-12" id="boxconfig">
+		        </div>
+		      </div> <!- Fin configuración General->
+
+		      <div class="tabs-panel" id="panel7v"> <!- Configuración popup->
+		        <div class="columns large-12" id="boxconfigpopup">
+		        </div>
+		      </div> <!- Fin configuración popup->
+
+		    </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="full reveal text-center" id="loginmodal" data-reveal data-close-on-esc="false">
+	  <h1>Inicia Sesión</h1>
+	  <form>
+		  <div class="row">
+		    <div class="medium-6 columns">
+		      <label>Nombre Usuario
+		        <input type="text" id="usuario" placeholder="nombre@email.com">
+		      </label>
+		    </div>
+		    <div class="medium-6 columns">
+		      <label>Contraseña
+		        <input type="password" id="clave" placeholder="miclavesecreta">
+		      </label>
+		    </div>
+		    <br>
+		    <a href="javascript:void(0);" class="button" id="btnLogin">Ingresar al Panel</a>
+		  </div>
+		</form>
+	</div>
+	
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jscolor.min.js"></script>
+	<script src="assets/js/sweetalert.min.js"></script>
+	<script src="assets/js/foundation.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+	<script type="text/rocketscript" data-rocketsrc="http://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+	<!-- <script type="text/rocketscript" data-rocketsrc="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script> -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+	<script src="http://cdn.quilljs.com/1.1.5/quill.min.js"></script>
+	<script src="assets/js/app.js"></script>
+
+</body>
+</html>
